@@ -17,10 +17,10 @@ jobs:
         run: sudo apt install lynx -y
 
       - name: make script executable
-        run: chmod +x ./m3u_lite.sh
+        run: chmod +x ./m3u.sh
 
       - name: start scraping
-        run: ./m3u_lite.sh ./links.txt
+        run: ./m3u.sh ./links.txt
 
       - name: list the streams
         run: |
