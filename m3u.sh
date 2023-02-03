@@ -14,7 +14,7 @@ sed -i 's/\r$//' temp_a.txt
 echo "start scraping the links for mp3 files - 128kb"
 
 # for links containing the 128kb.mp3 string
-for i in $(cat temp_a.txt) ; do lynx --dump --listonly --nonumbers "https://archive.org/download/$i" | grep -iF "128kb.mp3" | grep -iFv "64kb" | grep -iFv ".zip" | sed 's/ /%20/g' > $i.txt ; done
+for i in $(cat temp_a.txt) ; do lynx --dump --listonly --nonumbers "https://archive.org/download/$i" | grep -iF "128kb.mp3" | grep -iFv "64kb" | grep -iFv ".zip" | sed 's/ /%20/g' > $i.txt ; echo -e "$i" ; done
 
 # find empty files if there is any and copy their names for the next command 
 find *.txt -size 0 | sed 's/.txt//g' > temp_b.txt
@@ -22,7 +22,7 @@ find *.txt -size 0 | sed 's/.txt//g' > temp_b.txt
 echo "start scraping the links for mp3 files - generic mp3"
 
 # for other links if there is any
-for i in $(cat temp_b.txt) ; do lynx --dump --listonly --nonumbers "https://archive.org/download/$i" | grep -iF ".mp3" | grep -iFv "64kb" | grep -iFv ".zip" > $i.txt ; done
+for i in $(cat temp_b.txt) ; do lynx --dump --listonly --nonumbers "https://archive.org/download/$i" | grep -iF ".mp3" | grep -iFv "64kb" | grep -iFv ".zip" > $i.txt ; echo -e "$i" ;done
 
 echo "create m3u playlists out of text files"
 
