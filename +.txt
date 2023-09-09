@@ -1,0 +1,2 @@
+ia search 'collection:librivoxaudio' --itemlist > libri.txt
+cat libriold.txt libri.txt | sort | uniq --unique > links.txt
