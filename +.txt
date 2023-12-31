@@ -1,2 +1,3 @@
 ia search 'collection:librivoxaudio' --itemlist > libri.txt
 cat libriold.txt libri.txt | sort | uniq --unique > links.txt
+rm libriold.txt ; mv libri.txt libriold.txt
