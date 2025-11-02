@@ -1,3 +1,5 @@
 ia search 'collection:librivoxaudio' --itemlist > libri.txt
-cat libriold.txt libri.txt | sort | uniq --unique > links.txt
+sed -i 's/\r$//' libri.txt
+sed -i 's/\r$//' libriold.txt
+grep -Fvx -f libriold.txt libri.txt > links.txt
 rm libriold.txt ; mv libri.txt libriold.txt
