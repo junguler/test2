@@ -1,6 +1,8 @@
 curl -LOs https://archive.org/download/ia-pex/ia
 chmod +x ia
+pip install internetarchive
 
+# proxy ia search 'collection:librivoxaudio' --itemlist > libri.txt
 ia search 'collection:librivoxaudio' --itemlist > libri.txt
 sed -i 's/\r$//' libri.txt
 sed -i 's/\r$//' libriold.txt
